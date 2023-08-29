@@ -1,0 +1,6 @@
+- name: roles
+  hosts: vm01
+  become: true
+  roles:
+   - nginx
+   

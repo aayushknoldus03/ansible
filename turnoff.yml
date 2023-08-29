@@ -1,0 +1,6 @@
+- name: chaubey ka pc band
+  hosts: chaubey_don
+  become: yes
+  tasks:
+   - name: band hoja
+     command: halt -p

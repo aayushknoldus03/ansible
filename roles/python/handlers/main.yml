@@ -1,0 +1,15 @@
+---
+# handlers file for python
+- name: ngu
+  service:
+     name: nginx
+     state: started
+  when: age == 18
+  
+- name: user
+  user:
+   name: '{{item}}'
+   groups: new_ansible
+   state: present
+  loop: '{{usr}}'
+ 

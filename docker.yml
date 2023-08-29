@@ -1,0 +1,14 @@
+---
+- hosts: chaubey_don
+  
+  tasks:
+  - name: deploy jenkins docker container
+    docker_container:
+      image: jenkins/jenkins
+      name: jenkins
+      detach: true
+      state: started
+      auto_remove: true
+      ports:
+        - "8010:8080"
+

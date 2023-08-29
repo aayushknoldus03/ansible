@@ -1,0 +1,10 @@
+- name: error block
+  hosts: vm01
+  tasks:
+    - name: service01
+      command: touch /tmp/task/task1.txt
+      ignore_errors: 'yes'
+      
+    - name: create file
+      command: touch manju.txt
+

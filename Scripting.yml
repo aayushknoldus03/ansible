@@ -1,0 +1,5 @@
+- name: scripting in ec2 
+  hosts: virtualmachines
+  tasks:
+   - name: adding script
+     script: script.sh

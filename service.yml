@@ -1,0 +1,8 @@
+- name: stop or start service
+  hosts: vm02
+  become: yes
+  tasks:
+   - name: manju meri bhulli
+     service:
+      name : apache2
+      state : started

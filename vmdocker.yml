@@ -1,0 +1,49 @@
+---
+- name: Playbook to install docker
+  hosts: vm01
+  become: True
+  tasks:
+   - name: Update instance
+     apt:
+       state: latest 
+       update_cache: yes
+       install_recommends: yes 
+       autoremove: yes
+       force_apt_get: yes
+   - name: Get dependencies
+     apt:
+       name: "{{ item }}" 
+       state: latest
+       install_recommends: yes
+       force_apt_get: yes
+     with_items:
+      - ca-certificates
+      - curl
+      - gnupg
+   - name: Get GPG key
+     apt_key:
+       url: https://download.docker.com/linux/ubuntu/gpg
+       state: present
+   - name: Set up the repository
+     apt_repository:
+      repo: deb https://download.docker.com/linux/ubuntu focal stable 
+      state: present
+   - name: Update instance
+     apt:
+       state: latest 
+       update_cache: yes
+       install_recommends: yes 
+       autoremove: yes
+       force_apt_get: yes
+   - name: Install docker
+     apt:
+       name: "{{ item }}" 
+       state: latest
+       install_recommends: yes
+       force_apt_get: yes
+     with_items:
+      - docker-ce 
+      - docker-ce-cli 
+      - containerd.io 
+      - docker-buildx-plugin 
+      - docker-compose-plugin

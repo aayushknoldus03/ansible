@@ -1,0 +1,6 @@
+- name: task 3
+  apt: 
+   name: nodejs 
+   state: present
+   update_cache: yes
+  notify: node download

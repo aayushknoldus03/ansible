@@ -1,0 +1,21 @@
+---
+# tasks file for python
+- name: task 1
+  command: touch /home/ubuntu/python_file1.txt
+  
+- name: task 2
+  command: touch /home/ubuntu/python_file2.txt
+  
+- name: task 3
+  group: 
+   name: new_ansible
+   state: present
+  notify: user
+  
+- name: task 4
+  apt:
+     name: nginx
+     state: present
+     update_cache: 'yes'
+  notify: ngu
+

@@ -1,0 +1,18 @@
+- name: first condition file
+  hosts: vm01
+  become: yes
+  vars:
+   age: 18
+
+  tasks:
+   - name: creating a file if age is less than 18
+     command: touch /home/knoldus/kid.txt
+     when: age < 18
+    
+   - name: creating a directory if age is equal to 18
+     file:
+      path: /home/ubuntu/adult
+      state: directory
+     when: age == 18
+
+  

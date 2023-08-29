@@ -1,0 +1,9 @@
+---
+# tasks file for node
+- name: Configure UFW
+  become: true
+  ufw:
+    rule: allow
+    port: "{{ my_port }}"
+    state: enabled
+

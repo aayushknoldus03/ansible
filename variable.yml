@@ -1,0 +1,11 @@
+- name: first variable file
+  hosts: vm01
+  become: yes
+  vars:
+    servicename: apache2
+  tasks:
+   - name: change state using variables   
+     service: 
+      name: "{{servicename}}"
+      state: stopped
+     

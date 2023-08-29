@@ -1,0 +1,5 @@
+- name: adding line
+  hosts: chaubey_don
+  tasks: 
+   - name: adding aayush to the file
+     lineinfile: path=/home/knoldus/aayush.txt line="aayush"

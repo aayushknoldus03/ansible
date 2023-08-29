@@ -1,0 +1,6 @@
+---
+# handlers file for nginx
+- name: nginx download
+  service: 
+    name: nginx
+    state: started

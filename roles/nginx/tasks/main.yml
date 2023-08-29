@@ -1,0 +1,19 @@
+---
+# tasks file for nginx
+- name: installing nginx
+  apt:
+   name: nginx
+   state: present
+   update_cache: yes
+  notify: nginx download
+  
+- name: adding users
+  user:
+    name: '{{item}}'
+    state: present
+  with_items:
+          - '{{username}}'
+          
+
+ 
+

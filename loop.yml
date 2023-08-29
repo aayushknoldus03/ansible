@@ -1,0 +1,12 @@
+- name: looping
+  hosts: vm01
+  become: true
+  tasks:
+    - name: adding list of users
+      user: 
+       name: '{{item}}'
+       state: present
+       groups: jenky
+      loop:
+       - aayush
+       - manajari
